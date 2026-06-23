@@ -2000,53 +2000,6 @@ footer {
 }
 
 /* ========================================
-   RESPONSIVE - MOBILE NAV
-   ======================================== */
-@media (max-width: 767px) {
-  .nav-links {
-    display: none;
-  }
-
-  .nav-cta {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-  }
-
-  .nav-logo img {
-    height: 65px;
-    max-width: 250px;
-  }
-
-  .footer-logo img {
-    height: 60px;
-    max-width: 250px;
-  }
-
-  .hero-stats {
-    gap: 1rem;
-  }
-
-  .stat-item {
-    padding: 0.75rem 1rem;
-  }
-
-  .stat-number {
-    font-size: 1.4rem;
-  }
-
-  .plan-price .amount {
-    font-size: 2.8rem;
-  }
-
-  .authority-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* ========================================
    LARGE SCREENS (1400px+)
    ======================================== */
 @media (min-width: 1400px) {
@@ -2094,5 +2047,98 @@ footer {
 
   footer {
     padding-bottom: 5rem;
+  }
+}
+
+/* ========================================
+   CORREÇÃO MOBILE - TRAVA DE SCROLL HORIZONTAL E IMAGENS
+   ======================================== */
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-logo img {
+    height: 65px;
+    max-width: 250px;
+  }
+
+  .footer-logo img {
+    height: 60px;
+    max-width: 250px;
+  }
+
+  .hero-stats {
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 0.75rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .plan-price .amount {
+    font-size: 2.8rem;
+  }
+
+  .authority-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Oculta ou reduz o brilho gigante no mobile para evitar overflow */
+  .hero-glow {
+    width: 150vw !important;
+    height: 150vw !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  /* Mantém a caixa da imagem dentro da tela e centralizada */
+  .hero-image {
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Evita que bordas vazem */
+  }
+
+  /* Garante que a foto do Breno não estoure a tela */
+  .hero-image img {
+    width: 100% !important;
+    max-width: 350px !important; /* Limite seguro para não estourar telas pequenas */
+    height: auto !important;
+    object-fit: contain;
+  }
+  
+  /* Ajuste similar para a imagem na seção SOBRE */
+  .about-image {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .about-image img {
+    width: 100% !important;
+    max-width: 350px !important;
+    height: auto !important;
+    object-fit: contain;
   }
 }
