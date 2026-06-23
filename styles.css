@@ -2111,34 +2111,49 @@ html, body {
     transform: translate(-50%, -50%) !important;
   }
 
-  /* Mantém a caixa da imagem dentro da tela e centralizada */
+  /* Mantém a caixa da imagem dentro da tela e prepara para a camuflagem */
   .hero-image {
     width: 100%;
     max-width: 100vw;
     display: flex;
     justify-content: center;
-    overflow: hidden; /* Evita que bordas vazem */
+    position: relative; /* Necessário para a neblina particular */
   }
 
-  /* Garante que a foto do Breno não estoure a tela */
+  /* NOVO: Cria uma neblina particular APENAS no celular para esconder o corte */
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 140px; /* Altura do esfumaçado */
+    background: linear-gradient(to top, var(--bg-body) 0%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Garante que a foto esfumace sozinha também e não estoure a tela */
   .hero-image img {
     width: 100% !important;
-    max-width: 350px !important; /* Limite seguro para não estourar telas pequenas */
+    max-width: 380px !important; 
     height: auto !important;
-    object-fit: contain;
+    object-fit: cover !important; 
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, transparent 5%, black 30%, black 100%) !important;
+    mask-image: linear-gradient(to top, transparent 0%, transparent 5%, black 30%, black 100%) !important;
   }
   
   /* Ajuste similar para a imagem na seção SOBRE */
   .about-image {
     width: 100%;
     max-width: 100vw;
-    overflow: hidden;
+    position: relative;
   }
 
   .about-image img {
     width: 100% !important;
     max-width: 350px !important;
     height: auto !important;
-    object-fit: contain;
+    object-fit: cover !important;
   }
 }
